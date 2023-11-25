@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="112306048_CSS_Lab.css">
+    <title>Your First Web Page</title>
+</head>
+<body>
+
+    <div class="container">
+
+        <header>
+            <div class="logo">
+                <h1>My First Style Page</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li class="dropdown">
+                        <a class="dropbtn">Services &#9662;</a>
+                        <div class="dropdown-content">
+                            <a href="#learning">Process of Learning</a>
+                            <a href="#webDesign">Web Design</a>
+                            <a href="#graphicDesign">Graphic Design</a>
+                        </div>
+                    </li>
+
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="home">
+            <h2>Welcome to my Website!</h2>
+            <p>This is my first page, and I'm now learning CSS.</p>
+            <p>This page will show my process.</p>
+            <p>Please feel free to contact me use the button above.</p>
+        </section>
+
+        <section id="about">
+            <h2>About me</h2>
+            <p>I am majoring in MIS in NCCU now.</p>
+            <p>U can just call me Toby.</p>
+        </section>
+
+        <section id="services">
+            <h2>My Services</h2>
+            <ul>
+                <li>Process of my learing</li>
+                <li>Web Design</li>
+                <li>Graph Design</li>
+                <!-- Add more services as needed -->
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact me</h2>
+            <p>Feel free to reach out to me using the contact information below.</p>
+            <p>EMAIL: tobyfan0208@gmail.com</p>
+            <p>PHONE: 0988505110</p>
+            <!-- Add a contact form or additional details here if needed -->
+        </section>
+
+        <footer>
+            <p>&copy; 2023 Your Website. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+<!-- ... (previous HTML code) ... -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const navLinks = document.querySelectorAll('nav ul li a');
+        const sections = document.querySelectorAll('section');
+
+        function showSection(targetId) {
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+
+            document.getElementById(targetId).style.display = 'block';
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                const targetSectionId = link.getAttribute('href').substring(1);
+                showSection(targetSectionId);
+            });
+        });
+
+        // Additional script for the dropdown
+        const dropdown = document.getElementById('serviceDropdown');
+        dropdown.addEventListener('change', function () {
+            const selectedService = dropdown.value;
+            const targetSectionId = selectedService.substring(1);
+            showSection(targetSectionId);
+
+            // You can add additional logic here if needed.
+
+            window.location.href = selectedService; // Redirect to the selected service section
+        });
+    });
+</script>
+
+
+<!-- ... (remaining HTML code) ... -->
+
+    
+
+
+<!-- ... (remaining HTML code) ... -->
+
+
+</body>
+</html>
